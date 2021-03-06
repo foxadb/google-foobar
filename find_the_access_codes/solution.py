@@ -1,11 +1,8 @@
-def solution(l):
-    if (len(l) < 3):
-        return 0
-    triple_count = 0
-    for i in range(len(l) - 2):
-        for j in range(i + 1, len(l) - 1):
-            for k in range(j + 1, len(l)):
-                if ((l[j] % l[i] == 0) and (l[k] % l[j] == 0)):
-                    triple_count += 1
-    return triple_count
+def get_divisors(l, i):
+    # assuming the list is already sorted in ascending order
+    return [j for j in range(i) if (l[i] % l[j] == 0)]
 
+
+def solution(l):
+    divisors = {i: get_divisors(l, i) for i in range(len(l))}
+    return sum(sum(len(divisors[j]) for j in divisors[i]) for i in divisors.keys())
