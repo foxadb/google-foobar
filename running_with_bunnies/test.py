@@ -33,6 +33,21 @@ class TestRunningWithBunnies(unittest.TestCase):
             [0, 1]
         )
 
+    def test_3(self):
+        self.assertEqual(
+            solution(
+                [
+                    [0, 10, 10, 10, -2],
+                    [10, 0, 10, 10, 10],
+                    [10, 10, 0, 10, 10],
+                    [10, 10, 10, 0, 10],
+                    [0, 10, 10, 10, 0]
+                ],
+                1
+            ),
+            [0, 1, 2]
+        )
+
 
 if __name__ == '__main__':
     unittest.main()
